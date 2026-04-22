@@ -77,7 +77,19 @@
       renderGames(filtered);
     });
 
-    renderGames(GAMES);
+    // Check URL for incoming search query (from game page)
+const urlParams = new URLSearchParams(window.location.search);
+const incomingSearch = urlParams.get("search");
+if (incomingSearch) {
+  searchInput.value = incomingSearch;
+  const filtered = GAMES.filter(g =>
+    g.title.toLowerCase().includes(incomingSearch.toLowerCase()) ||
+    g.category.toLowerCase().includes(incomingSearch.toLowerCase())
+  );
+  renderGames(filtered);
+} else {
+  renderGames(GAMES);
+}
   </script>
 
 </body>

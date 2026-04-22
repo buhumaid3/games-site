@@ -18,13 +18,13 @@ const GAMES = [
     thumbnail: "https://placehold.co/400x250/1e1e2d/00ff9d?text=Tunnel+Rush",
     iframe: "",
   },
-  {
-    id: "2048",
-    title: "2048",
-    category: "Puzzle",
-    thumbnail: "https://placehold.co/400x250/1e1e2d/00ff9d?text=2048",
-    iframe: "",
-  },
+ {
+  id: "2048",
+  title: "2048",
+  category: "Puzzle",
+  thumbnail: "https://placehold.co/400x250/1e1e2d/00ff9d?text=2048",
+  iframe: "https://play2048.co/",
+},
   {
     id: "paper-io",
     title: "Paper.io",
