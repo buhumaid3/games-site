@@ -431,3 +431,17 @@ section {
     margin: 16px auto;
   }
 }
+/* TEMPORARY: show ad slot positions for development */
+.ad-slot:empty {
+  display: flex;
+  background: rgba(0, 255, 157, 0.05);
+  border: 2px dashed var(--accent);
+  border-radius: 8px;
+  color: var(--accent);
+  font-size: 12px;
+  opacity: 0.4;
+}
+
+.ad-slot:empty::before {
+  content: "AD SLOT — " attr(data-slot);
+}
