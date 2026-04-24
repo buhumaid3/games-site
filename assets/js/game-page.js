@@ -45,7 +45,7 @@ function loadGame() {
     loading.classList.add("hidden");
   });
 
-  // Track play in localStorage (for "Recently Played" feature later)
+  // Track in Recently Played
   trackRecentlyPlayed(game);
 }
 

@@ -30,67 +30,147 @@
 
   <!-- MAIN CONTENT -->
   <main>
-    <h2 class="section-title">🔥 All Games</h2>
-    <div class="game-grid" id="gameGrid">
-      <!-- Cards will be rendered by JS -->
-    </div>
-    <div class="empty-state" id="emptyState" style="display: none;">
-      No games match your search. Try a different keyword.
-    </div>
-  </main>
+    <!-- Category Filter Tabs -->
+    <div class="category-tabs" id="categoryTabs"></div>
 
+    <!-- Recently Played (hidden by default, shows only if user has history) -->
+    <section id="recentlyPlayedSection" style="display: none;">
+      <h2 class="section-title">⏱️ Recently Played</h2>
+      <div class="game-grid" id="recentlyPlayedGrid"></div>
+    </section>
+
+    <!-- Main Game Grid -->
+    <section>
+      <h2 class="section-title" id="gridTitle">🔥 All Games</h2>
+      <div class="game-grid" id="gameGrid"></div>
+      <div class="empty-state" id="emptyState" style="display: none;">
+        No games match your search. Try a different keyword.
+      </div>
+    </section>
+  </main>
+<!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 MathDen. Free games for curious minds.</p>
+      <nav class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="mailto:hello@mathden.com">Contact</a>
+      </nav>
+    </div>
+  </footer>
   <!-- SCRIPTS -->
   <script src="assets/js/games.js"></script>
-  <script>
-    const grid = document.getElementById("gameGrid");
-    const searchInput = document.getElementById("searchInput");
-    const emptyState = document.getElementById("emptyState");
+<script>
+  const grid = document.getElementById("gameGrid");
+  const searchInput = document.getElementById("searchInput");
+  const emptyState = document.getElementById("emptyState");
+  const categoryTabs = document.getElementById("categoryTabs");
+  const gridTitle = document.getElementById("gridTitle");
+  const recentlyPlayedSection = document.getElementById("recentlyPlayedSection");
+  const recentlyPlayedGrid = document.getElementById("recentlyPlayedGrid");
 
-    function renderGames(gameList) {
-      grid.innerHTML = "";
-      if (gameList.length === 0) {
-        emptyState.style.display = "block";
-        return;
-      }
-      emptyState.style.display = "none";
-      gameList.forEach(game => {
-        const card = document.createElement("a");
-        card.href = `game.html?id=${game.id}`;
-        card.className = "game-card";
-        card.innerHTML = `
-          <img class="game-card-thumb" src="${game.thumbnail}" alt="${game.title}" loading="lazy">
-          <div class="game-card-body">
-            <div class="game-card-title">${game.title}</div>
-            <div class="game-card-tag">${game.category}</div>
-          </div>
-        `;
-        grid.appendChild(card);
+  let activeCategory = "All";
+  let searchQuery = "";
+
+  // Build a single game card element
+  function buildCard(game) {
+    const card = document.createElement("a");
+    card.href = `game.html?id=${game.id}`;
+    card.className = "game-card";
+    card.innerHTML = `
+      <img class="game-card-thumb" src="${game.thumbnail}" alt="${game.title}" loading="lazy">
+      <div class="game-card-body">
+        <div class="game-card-title">${game.title}</div>
+        <div class="game-card-tag">${game.category}</div>
+      </div>
+    `;
+    return card;
+  }
+
+  // Render category filter tabs
+  function renderCategoryTabs() {
+    categoryTabs.innerHTML = "";
+    CATEGORIES.forEach(cat => {
+      const btn = document.createElement("button");
+      btn.className = "category-tab" + (cat === activeCategory ? " active" : "");
+      btn.textContent = cat;
+      btn.addEventListener("click", () => {
+        activeCategory = cat;
+        searchInput.value = "";
+        searchQuery = "";
+        renderCategoryTabs();
+        gridTitle.textContent = cat === "All" ? "🔥 All Games" : `🔥 ${cat}`;
+        applyFilters();
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
-    }
+      categoryTabs.appendChild(btn);
+    });
+  }
 
-    searchInput.addEventListener("input", (e) => {
-      const q = e.target.value.trim().toLowerCase();
-      const filtered = GAMES.filter(g =>
+  // Render the filtered game grid
+  function renderGames(gameList) {
+    grid.innerHTML = "";
+    if (gameList.length === 0) {
+      emptyState.style.display = "block";
+      return;
+    }
+    emptyState.style.display = "none";
+    gameList.forEach(g => grid.appendChild(buildCard(g)));
+  }
+
+  // Combine category + search filtering
+  function applyFilters() {
+    let filtered = GAMES;
+    if (activeCategory !== "All") {
+      filtered = filtered.filter(g => g.category === activeCategory);
+    }
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      filtered = filtered.filter(g =>
         g.title.toLowerCase().includes(q) ||
         g.category.toLowerCase().includes(q)
       );
-      renderGames(filtered);
-    });
+    }
+    renderGames(filtered);
+  }
 
-    // Check URL for incoming search query (from game page)
-const urlParams = new URLSearchParams(window.location.search);
-const incomingSearch = urlParams.get("search");
-if (incomingSearch) {
-  searchInput.value = incomingSearch;
-  const filtered = GAMES.filter(g =>
-    g.title.toLowerCase().includes(incomingSearch.toLowerCase()) ||
-    g.category.toLowerCase().includes(incomingSearch.toLowerCase())
-  );
-  renderGames(filtered);
-} else {
-  renderGames(GAMES);
-}
-  </script>
+  // Render Recently Played section
+  function renderRecentlyPlayed() {
+    try {
+      const recent = JSON.parse(localStorage.getItem("recentlyPlayed") || "[]");
+      if (recent.length === 0) {
+        recentlyPlayedSection.style.display = "none";
+        return;
+      }
+      recentlyPlayedSection.style.display = "block";
+      recentlyPlayedGrid.innerHTML = "";
+      recent.forEach(g => recentlyPlayedGrid.appendChild(buildCard(g)));
+    } catch (e) {
+      recentlyPlayedSection.style.display = "none";
+    }
+  }
+
+  // Search handler
+  searchInput.addEventListener("input", (e) => {
+    searchQuery = e.target.value.trim();
+    applyFilters();
+  });
+
+  // Handle incoming search from game page
+  const urlParams = new URLSearchParams(window.location.search);
+  const incomingSearch = urlParams.get("search");
+  if (incomingSearch) {
+    searchInput.value = incomingSearch;
+    searchQuery = incomingSearch;
+  }
+
+  // Boot
+  renderCategoryTabs();
+  renderRecentlyPlayed();
+  applyFilters();
+</script>
 
 </body>
 </html>
