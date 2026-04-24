@@ -104,15 +104,22 @@
       const btn = document.createElement("button");
       btn.className = "category-tab" + (cat === activeCategory ? " active" : "");
       btn.textContent = cat;
-      btn.addEventListener("click", () => {
-        activeCategory = cat;
-        searchInput.value = "";
-        searchQuery = "";
-        renderCategoryTabs();
-        gridTitle.textContent = cat === "All" ? "🔥 All Games" : `🔥 ${cat}`;
-        applyFilters();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
+     btn.addEventListener("click", () => {
+  activeCategory = cat;
+  searchInput.value = "";
+  searchQuery = "";
+  renderCategoryTabs();
+  gridTitle.textContent = cat === "All" ? "🔥 All Games" : `🔥 ${cat}`;
+  applyFilters();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  // Track category click
+  if (typeof posthog !== 'undefined') {
+    posthog.capture('category_clicked', {
+      category: cat,
+    });
+  }
+});
       categoryTabs.appendChild(btn);
     });
   }

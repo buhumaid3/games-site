@@ -47,6 +47,14 @@ function loadGame() {
 
   // Track in Recently Played
   trackRecentlyPlayed(game);
+  // Track game play in PostHog
+  if (typeof posthog !== 'undefined') {
+    posthog.capture('game_played', {
+      game_id: game.id,
+      game_title: game.title,
+      category: game.category,
+    });
+  }
 }
 
 // Track recently played games
