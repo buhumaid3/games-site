@@ -1,0 +1,48 @@
+=== ADSTERRA CODES ===
+
+POPUNDER:
+<script src="https://pl29238295.profitablecpmratenetwork.com/55/1c/b0/551cb0303af1a7dd5386c23ef6c2e7bf.js"></script>
+
+
+BANNER 728x90:
+<script>
+  atOptions = {
+    'key' : 'dc73d0abc598bef173a2f749809c4b78',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/dc73d0abc598bef173a2f749809c4b78/invoke.js"></script>
+
+
+BANNER 300x250:
+<script>
+  atOptions = {
+    'key' : '6a2849f2aa82b75d0018c4c3b8f26ad0',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/6a2849f2aa82b75d0018c4c3b8f26ad0/invoke.js"></script>
+
+
+BANNER 320x50:
+<script>
+  atOptions = {
+    'key' : 'b5489968bd2a0a5b91aee8b3cb389d09',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/b5489968bd2a0a5b91aee8b3cb389d09/invoke.js"></script>
+
+
+NATIVE BANNER:
+<script async="async" data-cfasync="false" src="https://pl29238296.profitablecpmratenetwork.com/daab952a30651cbca80f3a04cff0be87/invoke.js"></script>
+<div id="container-daab952a30651cbca80f3a04cff0be87"></div>

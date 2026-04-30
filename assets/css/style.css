@@ -431,3 +431,46 @@ section {
     margin: 16px auto;
   }
 }
+/* TEMPORARY: show ad slot positions for development */
+.ad-slot:empty {
+  display: flex;
+  background: rgba(0, 255, 157, 0.05);
+  border: 2px dashed var(--accent);
+  border-radius: 8px;
+  color: var(--accent);
+  font-size: 12px;
+  opacity: 0.4;
+}
+
+.ad-slot:empty::before {
+  content: "AD SLOT — " attr(data-slot);
+}
+
+/* ============================================
+   ADSTERRA MOBILE STICKY BANNER (320x50)
+   Shows only on phones, fixed at bottom
+   ============================================ */
+.ad-mobile-sticky {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .ad-mobile-sticky {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    z-index: 9999;
+    text-align: center;
+    padding: 4px 0;
+    min-height: 56px;
+  }
+
+  /* Push site content up so footer/last cards aren't covered */
+  body {
+    padding-bottom: 64px;
+  }
+}
