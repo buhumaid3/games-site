@@ -1,30 +1,30 @@
 ---
-id: ball-rolling-slope
-title: Ball Rolling Slope
+id: neon-ball-slope
+title: Neon Ball Slope
 category: action
-thumbnail: https://img.gamedistribution.com/0022998ce3c54962be6ffe178229b168-512x512.jpg
-iframe: https://html5.gamedistribution.com/0022998ce3c54962be6ffe178229b168/?gd_sdk_referrer_url=https://gamedistribution.com/games/slope-3d/
+thumbnail: https://img.gamemonetize.com/tvffgv3xt5p39edpb54kiulbaa86ia21/512x384.jpg
+iframe: https://html5.gamemonetize.co/tvffgv3xt5p39edpb54kiulbaa86ia21/
 description: Navigate a rolling ball through endless neon slopes
 ------
-id: slope-run
-title: Slope Run
+id: slope-ball
+title: Slope Ball
 category: action
-thumbnail: https://img.gamedistribution.com/b82efa0f9d7648beb126d62c0fb9363d-512x384.jpeg
-iframe: https://html5.gamedistribution.com/b82efa0f9d7648beb126d62c0fb9363d/?gd_sdk_referrer_url=https://gamedistribution.com/games/slope-run/
-description: participate in an exciting journey to restore memories of a ball
+thumbnail: https://img.gamemonetize.com/qsl1d4uie9eh1p0tx61cfz2uar8n2ai4/512x384.jpg
+iframe: https://html5.gamemonetize.co/qsl1d4uie9eh1p0tx61cfz2uar8n2ai4/
+description: Drag the ball left or right to avoid all obstacles and try not to fall
 ------
-id: endless-tunnel
-title: Endless Tunnel
+id: magic-tunnel-rush
+title: Magic Tunnel Rush
 category: action
-thumbnail: https://img.gamedistribution.com/0a9d64ab961d44c492509108d7f31cf4-512x384.jpeg
-iframe: https://html5.gamedistribution.com/0a9d64ab961d44c492509108d7f31cf4/?gd_sdk_referrer_url=https://gamedistribution.com/games/endless-tunnel/
-description: go forever in a 3D tunnel with a cube
+thumbnail: https://img.gamemonetize.com/6lxirgh1bzmimcr977pbohz4goqilbjr/512x384.jpg
+iframe: https://html5.gamemonetize.co/6lxirgh1bzmimcr977pbohz4goqilbjr/
+description: avoid the gaps to keep the ball in the tunnel
 ------
-id: rail-runner
-title: Rail Runner
+id: boxhead-highway-runner-game
+title: Boxhead Highway Runner Game
 category: action
-thumbnail: https://img.gamedistribution.com/559dae07921c4f629fe308dc9d996041-1280x720.jpeg
-iframe: https://html5.gamedistribution.com/559dae07921c4f629fe308dc9d996041/?gd_sdk_referrer_url=https://gamedistribution.com/games/subway-runner-1/
+thumbnail: https://img.gamemonetize.com/b9cawsttv89e37eilsm9othu9jbe0gur/512x384.jpg
+iframe: https://html5.gamemonetize.co/b9cawsttv89e37eilsm9othu9jbe0gur/
 description:  Run as far as you possibly can, evade obstacles of the railway and finish all the achievements
 ------
 id:temple-quest 

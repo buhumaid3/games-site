@@ -2,69 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Main pages -->
-  <url>
-    <loc>https://mathden.com/</loc>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://mathden.com/about.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mathden.com/privacy.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://mathden.com/terms.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
+  <url><loc>https://mathden.com/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://mathden.com/about.html</loc><priority>0.5</priority></url>
+  <url><loc>https://mathden.com/privacy.html</loc><priority>0.3</priority></url>
+  <url><loc>https://mathden.com/terms.html</loc><priority>0.3</priority></url>
 
-  <!-- Game pages: Action -->
-  <url><loc>https://mathden.com/game.html?id=ball-rolling-slope</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=slope-run</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=endless-tunnel</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=rail-runner</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=temple-quest</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=red-ball</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=stick-kill-3d</loc><priority>0.8</priority></url>
-
-  <!-- Game pages: Puzzle -->
-  <url><loc>https://mathden.com/game.html?id=2048-merge-world</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=seat-puzzle-cut-the-rope</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=sudoku</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=candy-match-saga-2</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=puzzle-blocks</loc><priority>0.8</priority></url>
-
-  <!-- Game pages: Racing -->
-  <url><loc>https://mathden.com/game.html?id=i8-city-driver</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=crazy-stunts-3d</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=moto-traffic-rider</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=moto-attack</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=real-car-parking-simulator</loc><priority>0.8</priority></url>
-
-  <!-- Game pages: Multiplayer -->
-  <url><loc>https://mathden.com/game.html?id=paper-io-2</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=2048-mayhem-io</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=blob-hero</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=wormate-2</loc><priority>0.8</priority></url>
-
-  <!-- Game pages: Sports -->
-  <url><loc>https://mathden.com/game.html?id=basketball-legends</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=soccer-duel</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=8-ball-pro</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=football-masters</loc><priority>0.8</priority></url>
-
-  <!-- Game pages: Classic -->
-  <url><loc>https://mathden.com/game.html?id=tetro-merge</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=pac-hero</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=snake</loc><priority>0.8</priority></url>
-
-  <!-- Game pages: Shooting -->
-  <url><loc>https://mathden.com/game.html?id=dino-egg-shooter</loc><priority>0.8</priority></url>
-  <url><loc>https://mathden.com/game.html?id=zombie-shooter-3d</loc><priority>0.8</priority></url>
+  <!-- Game pages -->
+  <url><loc>https://mathden.com/game.html?id=cheese-collector-rat-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-surfers-pro2</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=amoung-us-subway-surfers</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=unicorn-runner-3d</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=squid-game-3d-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=cowboy-2d-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-surfer-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=jerry-adventure-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=unicorn-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=paint-runner-trending-hyper-casual-game</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=squid-game-obstacle-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=rooftop-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=tunnel-rush</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=tunnel-rush-2022</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=squid-gamer-runner-obstacle</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=temple-run-2-tomb-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=sonic-runners</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=blob-the-runner-3d</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-santa-princess-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=slope-ball</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=zigzag-squid-game-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=endless-runner-super-hero-stunt</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=samurai-girl-runner-game-adventure-assassin-ninja</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-santa-runner-christmas</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=hugie-wugie-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=epic-runner-parkour-game</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=neon-ball-slope</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=among-us-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=dino-runner-birthday</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=fall-guy-stick-column-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=cavern-run-endless-runner-game</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=escape-from-hell-crazy-runner-game</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=group-runner-brawl</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=digital-circus-tower-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=runner-slapper</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=tall-man-runner-3d</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=naruto-runner-game</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-surfers-halloween-puzzle</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-surfers-rio-puzzle</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-princess-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=persona-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=cube-runner-adventure</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=teeth-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-surfers-orleans</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=join-runner-clash-3d</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=jelly-runner-3d</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=stick-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=coin-master-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=temple-run-2-running-game</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=t-rex-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=infinite-line-runner-game</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=slopegame</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=blob-runner-3d-fun-run-3d-game</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=crazy-road-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=maze-pac-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-surfers-london</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-surfers-word-blocks</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=2048-abc-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=nyan-cat-space-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=nail-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=runner-tom</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=skibronx-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=ninja-hero-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=tall-man-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=runner-coaster</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=colors-runners</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=2048-cube-runner-ultimate</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=tom-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=runner-figure</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-surfers-match-up</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=catwalk-fashion-beauty-runner-makeover-outfit-run</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-squid-game-3d-subway-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=gem-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=giant-runner-pro</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-surfers-san-francisco</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=ben-10-runner-adventure-free-online-ben-10-games</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-surfers-world-tour-iceland</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-surfers-singapore-2022</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=robot-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=trash-cat-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=girly-race-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=simon-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=snow-runner-trucks-jigsaw</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=horse-kart-runner-game</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=carrot-ninja-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=train-subway-surfers</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=super-power-hero-girls-runner-game-adventure</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=dragon-ball-goku-runner-game-adventure</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=challenge-the-runners</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=spider-man-unlimited-runner-adventure-free-game</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=spider-superhero-runner-game-adventure-endless</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=dinosaur-runner-3d</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=fruits-juice-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=slope-bike-2</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=sprint-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=2d-car-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=sandwich-runner-2</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=slope-game</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-surfers-zurich</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=i-am-an-excavator-runner-game</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=boxhead-highway-runner-game</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=abc-runner-phonics-and-tracing-from-dave-and-ava</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=runner-blob-3d</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=carrunner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-bus-runner-game-2020</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=fall-guys-multiplayer-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=pixel-runner-fall-boys-multiplayer</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=quiz-runnerio</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=city-runnerio</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=city-runner-3dio</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=strawberry-shortcake-runner-game-adventure</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=parkour-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-ladybug-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=basket-ball-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=american-football-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=2d-basketball-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=soccer-skills-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=rugby-ball-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=flip-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=fieldrunners-td</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=subway-batman-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=spongebob-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=spongebob-squarepants-runner-game-adventure</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=smoke-man-runner-2d</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=city-runner-pixel-runner-game-online</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=fail-minecraft-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=gun-runner-clone-game-3d</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=stickman-gun-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=scientist-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=thomas-runner</loc><priority>0.8</priority></url>
+  <url><loc>https://mathden.com/game.html?id=zombie-runner</loc><priority>0.8</priority></url>
 
 </urlset>
