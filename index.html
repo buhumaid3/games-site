@@ -95,12 +95,18 @@
     <script type="text/javascript" src="//www.highperformanceformat.com/6a2849f2aa82b75d0018c4c3b8f26ad0/invoke.js"></script>
   </div>
 
-    <!-- Main Game Grid -->
+<!-- Main Game Grid -->
     <section>
       <h2 class="section-title" id="gridTitle">🔥 All Games</h2>
       <div class="game-grid" id="gameGrid"></div>
       <div class="empty-state" id="emptyState" style="display: none;">
         No games match your search. Try a different keyword.
+      </div>
+
+      <!-- Load More -->
+      <div class="load-more-wrap" id="loadMoreWrap" style="display: none;">
+        <p class="load-more-count" id="loadMoreCount"></p>
+        <button class="load-more-btn" id="loadMoreBtn">Load More Games</button>
       </div>
     </section>
   </main>
@@ -119,6 +125,8 @@
   <!-- SCRIPTS -->
   <script src="assets/js/games.js"></script>
 <script>
+  const PAGE_SIZE = 24;
+
   const grid = document.getElementById("gameGrid");
   const searchInput = document.getElementById("searchInput");
   const emptyState = document.getElementById("emptyState");
@@ -126,17 +134,21 @@
   const gridTitle = document.getElementById("gridTitle");
   const recentlyPlayedSection = document.getElementById("recentlyPlayedSection");
   const recentlyPlayedGrid = document.getElementById("recentlyPlayedGrid");
+  const loadMoreWrap = document.getElementById("loadMoreWrap");
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const loadMoreCount = document.getElementById("loadMoreCount");
 
   let activeCategory = "All";
   let searchQuery = "";
+  let currentList = [];
+  let visibleCount = 0;
 
-  // Build a single game card element
   function buildCard(game) {
     const card = document.createElement("a");
     card.href = `game.html?id=${game.id}`;
     card.className = "game-card";
     card.innerHTML = `
-      <img class="game-card-thumb" src="${game.thumbnail}" alt="${game.title}" loading="lazy">
+      <img class="game-card-thumb" src="${game.thumbnail}" alt="${game.title}" loading="lazy" decoding="async">
       <div class="game-card-body">
         <div class="game-card-title">${game.title}</div>
         <div class="game-card-tag">${game.category}</div>
@@ -145,45 +157,56 @@
     return card;
   }
 
-  // Render category filter tabs
   function renderCategoryTabs() {
     categoryTabs.innerHTML = "";
     CATEGORIES.forEach(cat => {
       const btn = document.createElement("button");
       btn.className = "category-tab" + (cat === activeCategory ? " active" : "");
       btn.textContent = cat;
-     btn.addEventListener("click", () => {
-  activeCategory = cat;
-  searchInput.value = "";
-  searchQuery = "";
-  renderCategoryTabs();
-  gridTitle.textContent = cat === "All" ? "🔥 All Games" : `🔥 ${cat}`;
-  applyFilters();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-
-  // Track category click
-  if (typeof posthog !== 'undefined') {
-    posthog.capture('category_clicked', {
-      category: cat,
-    });
-  }
-});
+      btn.addEventListener("click", () => {
+        activeCategory = cat;
+        searchInput.value = "";
+        searchQuery = "";
+        renderCategoryTabs();
+        gridTitle.textContent = cat === "All" ? "🔥 All Games" : `🔥 ${cat}`;
+        applyFilters();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (typeof posthog !== 'undefined') {
+          posthog.capture('category_clicked', { category: cat });
+        }
+      });
       categoryTabs.appendChild(btn);
     });
   }
 
-  // Render the filtered game grid
-  function renderGames(gameList) {
-    grid.innerHTML = "";
-    if (gameList.length === 0) {
-      emptyState.style.display = "block";
-      return;
-    }
-    emptyState.style.display = "none";
-    gameList.forEach(g => grid.appendChild(buildCard(g)));
+  // Append the next batch of cards (does NOT clear grid)
+  function appendNextPage() {
+    const slice = currentList.slice(visibleCount, visibleCount + PAGE_SIZE);
+    const fragment = document.createDocumentFragment();
+    slice.forEach(g => fragment.appendChild(buildCard(g)));
+    grid.appendChild(fragment);
+    visibleCount += slice.length;
+    updateLoadMoreUI();
   }
 
-  // Combine category + search filtering
+  function updateLoadMoreUI() {
+    const total = currentList.length;
+    if (total === 0) {
+      loadMoreWrap.style.display = "none";
+      return;
+    }
+    const remaining = total - visibleCount;
+    if (remaining <= 0) {
+      loadMoreWrap.style.display = "block";
+      loadMoreBtn.style.display = "none";
+      loadMoreCount.textContent = `Showing all ${total} games`;
+    } else {
+      loadMoreWrap.style.display = "block";
+      loadMoreBtn.style.display = "inline-block";
+      loadMoreCount.textContent = `Showing ${visibleCount} of ${total}`;
+    }
+  }
+
   function applyFilters() {
     let filtered = GAMES;
     if (activeCategory !== "All") {
@@ -196,10 +219,19 @@
         g.category.toLowerCase().includes(q)
       );
     }
-    renderGames(filtered);
+    currentList = filtered;
+    visibleCount = 0;
+    grid.innerHTML = "";
+
+    if (filtered.length === 0) {
+      emptyState.style.display = "block";
+      loadMoreWrap.style.display = "none";
+      return;
+    }
+    emptyState.style.display = "none";
+    appendNextPage();
   }
 
-  // Render Recently Played section
   function renderRecentlyPlayed() {
     try {
       const recent = JSON.parse(localStorage.getItem("recentlyPlayed") || "[]");
@@ -215,13 +247,18 @@
     }
   }
 
-  // Search handler
+  loadMoreBtn.addEventListener("click", () => {
+    appendNextPage();
+    if (typeof posthog !== 'undefined') {
+      posthog.capture('load_more_clicked', { visible_count: visibleCount });
+    }
+  });
+
   searchInput.addEventListener("input", (e) => {
     searchQuery = e.target.value.trim();
     applyFilters();
   });
 
-  // Handle incoming search from game page
   const urlParams = new URLSearchParams(window.location.search);
   const incomingSearch = urlParams.get("search");
   if (incomingSearch) {
@@ -229,7 +266,6 @@
     searchQuery = incomingSearch;
   }
 
-  // Boot
   renderCategoryTabs();
   renderRecentlyPlayed();
   applyFilters();
