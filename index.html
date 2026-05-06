@@ -143,19 +143,40 @@
   let currentList = [];
   let visibleCount = 0;
 
-  function buildCard(game) {
-    const card = document.createElement("a");
-    card.href = `game.html?id=${game.id}`;
-    card.className = "game-card";
-    card.innerHTML = `
-      <img class="game-card-thumb" src="${game.thumbnail}" alt="${game.title}" loading="lazy" decoding="async">
-      <div class="game-card-body">
-        <div class="game-card-title">${game.title}</div>
-        <div class="game-card-tag">${game.category}</div>
-      </div>
-    `;
-    return card;
-  }
+  // Tiny gray placeholder (1x1 pixel SVG, ~150 bytes)
+const PLACEHOLDER = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 3'%3E%3Crect width='4' height='3' fill='%23161616'/%3E%3C/svg%3E";
+
+// IntersectionObserver — fires when image card scrolls within 200px of viewport
+const imgObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const img = entry.target;
+      const real = img.dataset.src;
+      if (real) {
+        img.src = real;
+        img.removeAttribute("data-src");
+      }
+      imgObserver.unobserve(img);
+    }
+  });
+}, { rootMargin: "200px" });
+
+function buildCard(game) {
+  const card = document.createElement("a");
+  card.href = `game.html?id=${game.id}`;
+  card.className = "game-card";
+  card.innerHTML = `
+    <img class="game-card-thumb" src="${PLACEHOLDER}" data-src="${game.thumbnail}" alt="${game.title}" decoding="async" width="512" height="384">
+    <div class="game-card-body">
+      <div class="game-card-title">${game.title}</div>
+      <div class="game-card-tag">${game.category}</div>
+    </div>
+  `;
+  // Start observing the image
+  const img = card.querySelector("img");
+  imgObserver.observe(img);
+  return card;
+}
 
   function renderCategoryTabs() {
     categoryTabs.innerHTML = "";
