@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>How We Pick Games for MathDen (Behind the Scenes) — MathDen</title>
+  <meta name="description" content="The full process behind picking 130 games out of thousands. What gets cut, what makes it, and why the catalog stays small on purpose.">
+
+  <!-- FAVICONS -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-180.png">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="How We Pick Games for MathDen (Behind the Scenes)">
+  <meta property="og:description" content="The full process behind picking 130 games out of thousands. What gets cut, what makes it, and why the catalog stays small on purpose.">
+  <meta property="og:image" content="https://mathden.com/assets/images/og-image.png">
+  <meta property="og:url" content="https://mathden.com/blog/how-we-pick-games.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="MathDen">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <span class="logo-emoji">🦁</span>
+        <span>MathDen</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="text-page">
+    <p style="color: var(--text-dim); font-size: 14px; margin-bottom: 8px;">
+      <a href="/" style="color: var(--text-dim); text-decoration: none;">← Back to games</a>
+    </p>
+
+    <h1>How We Pick Games for MathDen (Behind the Scenes)</h1>
+    <p class="lead">Most game sites brag about having ten thousand titles. We have 130. Here's the full story of how each one earned its spot — and why we throw 85% of candidates in the trash.</p>
+
+    <p>When people first land on MathDen, they often ask the same question in some form: "Why so few games?" Bigger sites in our space brag about catalogs of 5,000, 10,000, sometimes 30,000+ titles. We deliberately keep ours at around 130. This post is about why — and how each of those 130 actually got picked.</p>
+
+    <p>The short version: we'd rather have a small catalog you trust than a giant catalog where 70% of clicks lead to broken or terrible games. The long version is below. If you've ever wondered what happens before a game shows up on a site like this, here it is.</p>
+
+    <h2>Where Games Come From</h2>
+    <p>Every game on MathDen is licensed from <strong>GameMonetize</strong>, one of the largest HTML5 game distribution networks in the world. They work as the middleman between independent game developers (who make the games) and websites (who host them). When you play a game on MathDen, the developer who built it gets paid a share of the ad revenue we earn. This is the same model that legitimate sites like CrazyGames and Poki use.</p>
+
+    <p>This matters because the alternative — what a lot of shady free-game sites do — is to scrape and re-host games without permission. Those games tend to break randomly when the original developer updates their version, contain modified ads that nobody approved, and sometimes get pulled offline without warning. We don't do any of that. The tradeoff is we can only host games available through legitimate licensing networks, but it's worth it for the stability.</p>
+
+    <p>GameMonetize's catalog contains roughly 15,000 games at any given time. New ones get added weekly. Our job is to filter that 15,000 down to the few hundred we'd actually want to play ourselves.</p>
+
+    <h2>The Filtering Pipeline</h2>
+    <p>Picking 130 games out of 15,000 sounds like it should take forever. We've built a process that makes it surprisingly fast — but every game still gets a human eyeball on it before going live. Here's the actual sequence:</p>
+
+    <h3>Step 1: Category targeting</h3>
+    <p>Instead of browsing the whole catalog, we work backward from our seven categories (Action, Puzzle, Racing, Multiplayer, Sports, Classic, Shooting). For each category, we identify the search terms that produce the highest-quality games. For example, "slope" reliably returns excellent Action candidates. "Parking" reliably returns good Racing candidates. "Sudoku" reliably returns solid Puzzle candidates.</p>
+    <p>We've built up a list of about 30 search terms that consistently surface good games. We pull the full results for each one — usually 100-150 games per search — and combine them into a master list of candidates. Right now that pool sits at around 4,000-5,000 games. That's already a big filter from the original 15,000.</p>
+
+    <h3>Step 2: Automated quality filters</h3>
+    <p>Before any human looks at a game, our automated filters cut the candidate pool roughly in half. The filters check for:</p>
+    <ul>
+      <li><strong>Missing thumbnails or URLs.</strong> Any game with broken metadata gets cut immediately. If the developer can't even provide a working preview image, the game itself is probably half-finished.</li>
+      <li><strong>Adult or inappropriate content.</strong> Our keyword filter blocks anything tagged or named with words like "sexy," "adult," "kiss," "dating" — the kind of content that has no place on a site many people open at school or work. This isn't perfect, but it catches the obvious cases.</li>
+      <li><strong>Duplicate or near-duplicate titles.</strong> The same game often appears multiple times in feeds with slightly different names. We deduplicate by game ID before anything else.</li>
+      <li><strong>Empty descriptions.</strong> If the developer didn't even write a sentence about what the game is, that's a signal of low effort. Auto-cut.</li>
+    </ul>
+    <p>After this pass we're usually down to about 2,000-2,500 candidates.</p>
+
+    <h3>Step 3: Manual playtest</h3>
+    <p>This is where the real filtering happens, and it's also why our catalog can never be 10,000 games — there's only so much testing one person can do. Every game that survives the automated filters gets opened and played for at least 60 seconds. We're checking for:</p>
+    <ul>
+      <li><strong>Does it actually load?</strong> A surprising number of games crash, hang, or show an error within the first 10 seconds. Auto-cut.</li>
+      <li><strong>Does it work on mobile?</strong> Anywhere from 40-60% of our visitors play on phones. Games that require precise keyboard input with no mobile fallback get rejected unless they're truly exceptional desktop experiences.</li>
+      <li><strong>Are the controls responsive?</strong> Browser games run inside an iframe, and some games have terrible input lag. If clicking or tapping feels broken, we cut it.</li>
+      <li><strong>Is there a forced ad before play?</strong> Some games show a 30-second unskippable ad before you can do anything. We try to avoid those — the whole point of a quick-play site is, well, quick play.</li>
+      <li><strong>Is the gameplay actually fun?</strong> This is subjective but real. If we can't see ourselves playing it again voluntarily, we don't add it.</li>
+    </ul>
+
+    <p>This step alone eliminates the majority of remaining candidates. From 2,000-2,500, we usually end up with 200-300 games that pass.</p>
+
+    <h3>Step 4: Category balance</h3>
+    <p>The final step is making sure no single category dominates. If we just picked the top 200 from the filtered list, we'd probably end up with 120 Action games and 8 Puzzle games — because Action games happen to be more common in feeds. So we cap each category at around 35 games and pick the strongest ones in each bucket. That gives us our final ~130-game catalog with reasonable diversity.</p>
+
+    <h2>What We Throw Out (And Why)</h2>
+    <p>For every game on the site, there are about 8-10 we rejected. Some patterns we see constantly:</p>
+
+    <h3>Asset-flipped reskins</h3>
+    <p>A huge chunk of the games out there are the same engine, the same mechanics, the same controls, with just different art swapped in. You'll see "Cooking Madness," "Cooking Mama HD," "Cooking Frenzy," "Super Cooking Game" — and they're all literally the same game with different sprites. We usually pick the best one in each cluster and skip the rest.</p>
+
+    <h3>Browser ports of dead mobile games</h3>
+    <p>Some games are clearly mobile titles from 2017 that someone wrapped in an HTML5 player. The UI assumes a touchscreen, the difficulty curve is designed for free-to-play psychology with timers and energy systems, and the whole thing feels like a relic. These almost always get cut.</p>
+
+    <h3>"Hidden object" games with broken art</h3>
+    <p>A weirdly common category in free-game feeds. The thumbnails look promising, but the actual gameplay involves squinting at low-resolution images for objects that are technically there but practically invisible. Universally cut.</p>
+
+    <h3>Games that crash on touch</h3>
+    <p>Some games claim mobile support but actually crash the moment you touch the screen. We discover this in playtest. Cut without exception.</p>
+
+    <h3>Anything with "kiss" or "dating" in the name</h3>
+    <p>A genuine subcategory of free browser games involves cartoon characters making out at school or in the workplace. There is an audience for this somewhere. It is not our audience. Auto-blocked, manually verified.</p>
+
+    <h2>The Numbers, Honestly</h2>
+    <p>If you're curious about scale: the most recent catalog refresh started with 5,000+ candidates from GameMonetize. After deduplication: about 3,800. After automated filters: about 2,100. After playtest: about 280. After category balancing and final selection: 130. That's about a 2.6% acceptance rate from the starting pool.</p>
+
+    <p>The 130 number isn't sacred — it could be 100 or 200. It's whatever passes our quality bar. Right now that's roughly 130 games. When new high-quality games appear in the feed (which happens every couple of weeks), we add them and rotate out games that haven't been played in a while.</p>
+
+    <h2>Why Stay Small?</h2>
+    <p>The case for a giant catalog is obvious: more games means more search traffic, more long-tail keywords, more pages Google can index. It's the SEO-maximalist play. A site with 10,000 game pages can theoretically rank for 10,000 different search terms.</p>
+
+    <p>The case against it — the one we believe — is that bigger catalogs almost always mean worse average quality. When you have 10,000 games, you can't possibly have tested all of them. You're putting your visitors through a roulette of "is this one going to work or not." That erodes trust. The first time someone clicks a broken game on MathDen, they remember it. Three or four bad games in a row and they stop coming back.</p>
+
+    <p>Our bet is that a small, trustworthy catalog beats a giant, unreliable one. Visitors come back because they know everything will work. Word-of-mouth ("just go to mathden.com, all their games actually run") matters more than ranking for obscure keywords.</p>
+
+    <p>We could be wrong. Maybe scale wins. We'll find out over the next year. But the philosophy — quality over quantity, trust over reach — is the actual idea behind the site.</p>
+
+    <h2>How You Can Help</h2>
+    <p>The biggest weakness of this whole system is that one person can only playtest so many games. We miss good ones. We sometimes keep games that quietly degrade over time without us noticing. If you find a game on MathDen that's broken, unfair, or just bad — let us know at <a href="mailto:hello@mathden.com">hello@mathden.com</a>. We genuinely act on these emails. The catalog you see is partly shaped by feedback from people who play it.</p>
+
+    <p>And if there's a game you wish was here that isn't — same email, same response. We can't add everything (some games aren't on networks we license from), but we can try.</p>
+
+    <p style="margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center;">
+      <a href="/" style="color: var(--accent); text-decoration: none; font-weight: 600;">→ Browse the 130 games that made the cut</a>
+    </p>
+
+    <p style="margin-top: 32px; color: var(--text-dim); font-size: 14px;">
+      <em>Published May 9, 2026 by MathDen</em>
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 MathDen. Free games for curious minds.</p>
+      <nav class="footer-links">
+        <a href="/about.html">About</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="mailto:hello@mathden.com">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
