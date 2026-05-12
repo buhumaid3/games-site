@@ -55,6 +55,76 @@ function loadGame() {
       category: game.category,
     });
   }
+// Inject SEO meta tags dynamically for this specific game
+  document.title = `${game.title} — Free Online Game | MathDen`;
+  let metaDesc = document.querySelector('meta[name="description"]');
+  if (!metaDesc) {
+    metaDesc = document.createElement('meta');
+    metaDesc.name = 'description';
+    document.head.appendChild(metaDesc);
+  }
+  const shortDesc = (game.description || '').slice(0, 150);
+  metaDesc.content = shortDesc || `Play ${game.title} free on MathDen. No downloads, no signups. ${game.category} game playable on any device.`;
+
+  // Inject the game description section below the iframe
+  injectGameDescription(game);
+}
+
+// Helper: injects a descriptive content block below the iframe for SEO + UX
+function injectGameDescription(game) {
+  // Avoid duplicate injection
+  if (document.getElementById('gameInfo')) return;
+
+  const container = document.querySelector('main') || document.body;
+  const moreGamesSection = document.querySelector('.more-games-section');
+
+  const infoSection = document.createElement('section');
+  infoSection.id = 'gameInfo';
+  infoSection.className = 'game-info-section';
+
+  const description = game.description || `${game.title} is a ${game.category.toLowerCase()} game playable for free on MathDen. No downloads or signups required — just click and play in your browser.`;
+
+  // Build similar games (3 from same category, excluding current)
+  let similarGames = [];
+  if (typeof GAMES !== 'undefined') {
+    similarGames = GAMES
+      .filter(g => g.category === game.category && g.id !== game.id)
+      .slice(0, 3);
+  }
+
+  let similarHtml = '';
+  if (similarGames.length > 0) {
+    similarHtml = `
+      <h3 class="game-info-subhead">More ${game.category} Games You Might Like</h3>
+      <div class="similar-games-grid">
+        ${similarGames.map(g => `
+          <a href="game.html?id=${g.id}" class="similar-game-card">
+            <img src="${g.thumbnail}" alt="${g.title}" loading="lazy" decoding="async">
+            <span class="similar-game-title">${g.title}</span>
+          </a>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  infoSection.innerHTML = `
+    <div class="game-info-inner">
+      <h2 class="game-info-title">About ${game.title}</h2>
+      <p class="game-info-category"><strong>Category:</strong> ${game.category} &middot; <strong>Free to Play</strong> &middot; <strong>No Download</strong></p>
+      <p class="game-info-description">${description}</p>
+      <p class="game-info-howto">
+        <strong>How to play:</strong> Click anywhere inside the game window to start. ${game.title} runs directly in your browser — no installation needed. Works on desktop, tablet, and mobile devices. If the game doesn't respond, try clicking inside the iframe to give it keyboard focus.
+      </p>
+      ${similarHtml}
+    </div>
+  `;
+
+  // Insert before "more games" section if it exists, otherwise append to main
+  if (moreGamesSection) {
+    moreGamesSection.parentNode.insertBefore(infoSection, moreGamesSection);
+  } else {
+    container.appendChild(infoSection);
+  }
 }
 
 // Track recently played games

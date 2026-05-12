@@ -135,3 +135,97 @@
     font-size: 16px;
   }
 }
+/* ============================================
+   GAME INFO SECTION (per-game descriptions)
+   ============================================ */
+.game-info-section {
+  max-width: 1400px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+.game-info-inner {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+}
+
+.game-info-title {
+  font-size: 24px;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.game-info-category {
+  color: var(--text-dim);
+  font-size: 14px;
+  margin: 0 0 20px;
+}
+
+.game-info-description {
+  color: #c8c8d0;
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+.game-info-howto {
+  color: #c8c8d0;
+  line-height: 1.7;
+  margin: 0 0 24px;
+  font-size: 14px;
+}
+
+.game-info-subhead {
+  font-size: 18px;
+  margin: 24px 0 16px;
+  color: var(--text);
+}
+
+.similar-games-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.similar-game-card {
+  display: block;
+  text-decoration: none;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.similar-game-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.similar-game-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.similar-game-title {
+  display: block;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+@media (max-width: 600px) {
+  .game-info-inner {
+    padding: 20px;
+  }
+  .game-info-title {
+    font-size: 20px;
+  }
+  .similar-games-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
