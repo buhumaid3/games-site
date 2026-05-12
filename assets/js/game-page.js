@@ -119,8 +119,13 @@ function injectGameDescription(game) {
     </div>
   `;
 
-  // Insert before "more games" section if it exists, otherwise append to main
-  if (moreGamesSection) {
+  // Insert directly after the game's iframe container (most reliable position)
+  const iframe = document.getElementById('gameFrame');
+  const frameContainer = iframe ? (iframe.closest('.game-frame-container') || iframe.parentNode) : null;
+
+  if (frameContainer && frameContainer.parentNode) {
+    frameContainer.parentNode.insertBefore(infoSection, frameContainer.nextSibling);
+  } else if (moreGamesSection) {
     moreGamesSection.parentNode.insertBefore(infoSection, moreGamesSection);
   } else {
     container.appendChild(infoSection);
